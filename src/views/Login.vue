@@ -65,9 +65,8 @@ export default {
     },
     methods: {
         validar() {
-            this.$validator.validateAll('signup').then(result => {
-                auth.createUserWithEmailAndPassword(this.email, this.senha).then(cred => {
-                    console.log(cred);
+            this.$validator.validateAll('signup').then(() => {
+                auth.createUserWithEmailAndPassword(this.email, this.senha).then(() => {
                     this.dialogoCriarConta = false;
                     this.email = '';
                     this.senha = '';
@@ -75,12 +74,10 @@ export default {
             })
         },
         login(){
-            this.$validator.validateAll('login').then(result => {
-                auth.signInWithEmailAndPassword(this.emailLogin, this.senhaLogin).then(cred => {
+            this.$validator.validateAll('login').then(() => {
+                auth.signInWithEmailAndPassword(this.emailLogin, this.senhaLogin).then(() => {
                     this.$router.push('/feedbacks');
-                    console.log(cred);
                 }).catch(e => {
-                    console.log(e.code);
                     switch(e.code){
                         case 'auth/invalid-email':
                             this.mensagemErro = "E-mail inválido"
