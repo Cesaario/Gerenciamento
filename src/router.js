@@ -1,6 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Feedbacks from './views/Feedbacks.vue'
+import Positivos from './views/Positivos.vue'
+import Negativos from './views/Negativos.vue'
+import Resolvidos from './views/Resolvidos.vue'
+import Estatisticas from './views/Estatisticas.vue'
+import Login from './views/Login.vue'
 
 Vue.use(Router)
 
@@ -10,16 +15,33 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      name: 'login',
+      component: Login
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      path: '/feedbacks',
+      name: 'feedbacks',
+      component: Feedbacks
+    },
+    {
+      path: '/positivos',
+      name: 'positivos',
+      component: Positivos
+    },
+    {
+    path: '/negativos',
+    name: 'negativos',
+    component: Negativos
+    },
+    {
+    path: '/resolvidos',
+    name: 'resolvidos',
+    component: Resolvidos
+    },
+    {
+    path: '/estatisticas',
+    name: 'estatisticas',
+    component: Estatisticas
     }
   ]
 })
